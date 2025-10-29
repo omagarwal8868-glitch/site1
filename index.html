@@ -1,0 +1,1701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Govind Pansari - Premium Dry Fruits & Spices</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background-color: #f5f5f5;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles - Optimized for Mobile */
+        header {
+            background: linear-gradient(135deg, #C41E3A 0%, #8B0000 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(196, 30, 58, 0.3);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            vertical-align: middle;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #FFD700;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section - Full Page on Load */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+                        url('image/store.jpg') center/cover;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            padding: 10px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+            animation: heroGlow 6s ease-in-out infinite;
+        }
+
+        @keyframes heroGlow {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.2) rotate(180deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        /* White Title - No Glow, Normal Font Weight */
+        .hero-content h1 {
+            font-size: clamp(3rem, 5vw, 2rem);
+            margin-bottom: 1rem;
+            color: white;
+            opacity: 0;
+            animation: titleFadeIn 1.5s ease-out 0.5s forwards;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        @keyframes titleFadeIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.5) translateY(-100px) rotateX(-90deg);
+                filter: blur(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0) rotateX(0deg);
+                filter: blur(0);
+            }
+        }
+
+        .hero-content p {
+            font-size: clamp(1rem, 2.5vw, 1.4rem);
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 1.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* White Outline Button with 360° Rotating Cart */
+        .shop-now-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 45px;
+            background: transparent;
+            color: white;
+            border: 3px solid white;
+            font-weight: bold;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.3rem;
+            animation: slideInButton 1s ease-out 1.8s both;
+            transition: all 0.5s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes slideInButton {
+            from {
+                opacity: 0;
+                transform: translateY(80px) scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .shop-now-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: white;
+            transition: left 0.5s;
+            z-index: -1;
+        }
+
+        .shop-now-btn:hover::before {
+            left: 0;
+        }
+
+        .shop-now-btn:hover {
+            color: #C41E3A;
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.5);
+        }
+
+        /* 360° Rotating Cart Icon */
+        .shop-now-btn i {
+            font-size: 1.4rem;
+            animation: cartFloat 2s ease-in-out infinite;
+        }
+
+        @keyframes cartFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .shop-now-btn:hover i {
+            animation: cartRotate360 0.8s ease-in-out;
+        }
+
+        @keyframes cartRotate360 {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.3); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 3rem 0;
+            background: #FFF5E6;
+        }
+
+        .features-section h2 {
+            text-align: center;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: #C41E3A;
+            margin-bottom: 2rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: #FFD700;
+            box-shadow: 0 10px 30px rgba(196, 30, 58, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #C41E3A;
+        }
+
+        .feature-card h3 {
+            color: #8B0000;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .feature-card p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Products Section - 3 Pages, Max 8 Products Each */
+        .products {
+            padding: 3rem 0;
+            background: linear-gradient(180deg, #fff 0%, #FFF5E6 100%);
+        }
+
+        .products h2 {
+            text-align: center;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: #C41E3A;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        .product-slider-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            transition: transform 0.5s ease;
+        }
+
+        /* Pagination Controls - Enhanced */
+        .pagination-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .pagination-btn {
+            background: linear-gradient(135deg, #C41E3A, #8B0000);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(196, 30, 58, 0.3);
+        }
+
+        .pagination-btn:hover:not(:disabled) {
+            background: linear-gradient(135deg, #8B0000, #C41E3A);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(196, 30, 58, 0.5);
+        }
+
+        .pagination-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        .page-indicator {
+            font-size: 1.2rem;
+            color: #C41E3A;
+            font-weight: bold;
+            padding: 10px 25px;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.4s;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(196, 30, 58, 0.3);
+            border-color: #FFD700;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.15);
+        }
+
+        .product-info {
+            padding: 1.2rem;
+            text-align: center;
+        }
+
+        .product-info h3 {
+            color: #C41E3A;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .product-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .product-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #FFD700;
+            color: #8B0000;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 3;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        /* Shops Section */
+        .shops-section {
+            padding: 3rem 0;
+            background: linear-gradient(135deg, #C41E3A 0%, #8B0000 100%);
+            color: white;
+        }
+
+        .shops-section h2 {
+            text-align: center;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: #FFD700;
+            margin-bottom: 2rem;
+        }
+
+        .shops-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .shop-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.4s;
+            text-decoration: none;
+            display: block;
+        }
+
+        .shop-card:hover {
+            transform: scale(1.05);
+        }
+
+.shop-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.shop-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.shop-card:hover .shop-image img {
+    transform: scale(1.1);
+}
+
+
+        .shop-info {
+            padding: 1.5rem;
+            color: #333;
+        }
+
+        .shop-info h3 {
+            color: #C41E3A;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .shop-info p {
+            color: #666;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .shop-info .address {
+            font-weight: bold;
+            color: #8B0000;
+        }
+
+        /* ============================================
+   INSTAGRAM SECTION - Updated CSS
+   ============================================ */
+
+/* Main Instagram Section */
+.instagram-section {
+    padding: 60px 20px;
+    background-color: #fafafa;
+    text-align: center;
+}
+
+.instagram-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Section Headers */
+.instagram-section h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #262626;
+    font-weight: 600;
+}
+
+.instagram-section p {
+    color: #8e8e8e;
+    margin-bottom: 40px;
+    font-size: 16px;
+}
+
+/* Instagram Feed Grid Layout */
+.instagram-feed {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+/* Individual Instagram Post Container */
+.instagram-post {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+    aspect-ratio: 1 / 1;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.instagram-post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Styling */
+.instagram-post img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.instagram-post:hover img {
+    transform: scale(1.1);
+}
+
+/* Overlay Effect on Hover */
+.instagram-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.instagram-post:hover .instagram-overlay {
+    opacity: 1;
+}
+
+.instagram-overlay p {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 20px;
+    text-align: center;
+    margin: 0;
+}
+
+/* Instagram Follow Button */
+.insta-follow-btn {
+    display: inline-block;
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: transform 0.2s ease;
+    margin-top: 20px;
+}
+
+.insta-follow-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(188, 24, 136, 0.3);
+}
+
+.insta-follow-btn i {
+    margin-right: 8px;
+}
+
+/* Responsive Design - Tablets */
+@media (max-width: 768px) {
+    .instagram-feed {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .instagram-section h2 {
+        font-size: 28px;
+    }
+    
+    .instagram-section {
+        padding: 40px 15px;
+    }
+    
+    .instagram-overlay p {
+        font-size: 16px;
+        padding: 15px;
+    }
+}
+
+/* Responsive Design - Mobile */
+@media (max-width: 480px) {
+    .instagram-section h2 {
+        font-size: 24px;
+    }
+    
+    .instagram-section p {
+        font-size: 14px;
+        margin-bottom: 30px;
+    }
+    
+    .instagram-feed {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .instagram-overlay p {
+        font-size: 14px;
+        padding: 10px;
+    }
+    
+    .insta-follow-btn {
+        padding: 10px 25px;
+        font-size: 14px;
+    }
+}
+
+        /* Celebrity Section */
+        .testimonials {
+            padding: 3rem 0;
+            background: #f5f5f5;
+        }
+
+        .testimonials h2 {
+            text-align: center;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: #C41E3A;
+            margin-bottom: 0.5rem;
+        }
+
+        .celebrity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .celebrity-item {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(196, 30, 58, 0.3);
+            transition: all 0.4s;
+            position: relative;
+            background: white;
+        }
+
+        .celebrity-item:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 20px 60px rgba(196, 30, 58, 0.5);
+        }
+
+        .celebrity-item img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s;
+        }
+
+        .celebrity-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .celebrity-name {
+            padding: 1.5rem;
+            text-align: center;
+            background: linear-gradient(135deg, #C41E3A, #8B0000);
+            color: white;
+        }
+
+        .celebrity-name p {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        /* App Download Section */
+        .app-download {
+            background: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .app-download h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: #C41E3A;
+            margin-bottom: 1rem;
+        }
+
+        .app-download p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .store-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .store-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #8B0000, #C41E3A);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(196, 30, 58, 0.3);
+        }
+
+        .store-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(196, 30, 58, 0.5);
+        }
+
+        .store-btn i {
+            font-size: 2rem;
+            margin-right: 10px;
+        }
+
+        .btn-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .btn-text small {
+            font-size: 0.7rem;
+            opacity: 0.9;
+        }
+
+        .btn-text span {
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        /* About Section */
+        .about {
+            padding: 3rem 0;
+            background: linear-gradient(180deg, #FFF5E6 0%, white 100%);
+        }
+
+        .about h2 {
+            text-align: center;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: #C41E3A;
+            margin-bottom: 2rem;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            line-height: 1.8;
+            color: #555;
+            font-size: 1rem;
+        }
+
+        /* Social Media Section */
+        .social-media {
+            background: linear-gradient(135deg, #C41E3A 0%, #8B0000 100%);
+            padding: 3rem 0;
+            text-align: center;
+            color: white;
+        }
+
+        .social-media h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 1rem;
+            color: #FFD700;
+        }
+
+        .social-media p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 55px;
+            height: 55px;
+            background: white;
+            border-radius: 50%;
+            font-size: 1.6rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .social-icon:hover {
+            transform: scale(1.2) rotate(360deg);
+            box-shadow: 0 6px 25px rgba(255, 215, 0, 0.5);
+        }
+
+        .social-icon.facebook { color: #3B5998; }
+        .social-icon.instagram { color: #E1306C; }
+        .social-icon.whatsapp { color: #25D366; }
+
+        /* Footer */
+        footer {
+            background: #2c2c2c;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-highlight {
+            color: #FFD700;
+        }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: #8B0000;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0,0,0,0.5);
+                padding: 20px 0;
+                gap: 0;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                padding: 15px 0;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .logo img {
+                height: 50px;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .shops-grid,
+            .features-grid,
+            .celebrity-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .store-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .instagram-feed {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">
+                <img src="image/logo 4.png" alt="Govind Pansari">
+            </a>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" onclick="closeMenu()">Home</a></li>
+                <li><a href="#products" onclick="closeMenu()">Products</a></li>
+                <li><a href="#shops" onclick="closeMenu()">Our Shops</a></li>
+                <li><a href="#instagram" onclick="closeMenu()">Instagram</a></li>
+                <li><a href="#download" onclick="closeMenu()">Download App</a></li>
+                <li><a href="#social" onclick="closeMenu()">Connect</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section - Full Page with White Text (No Glow) -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Quality You Can Taste</h1>
+            <p>Premium Dry Fruits & Spices Since 1950</p>
+            <p style="font-size: 0.9rem; margin-top: -1rem;">Agra's Most Trusted Brand</p>
+            <a href="https://play.google.com/store" target="_blank" class="shop-now-btn">
+                <i class="fas fa-shopping-cart"></i> Shop Now
+            </a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2>Why Choose Us?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-gem"></i></div>
+                    <h3>Premium Quality</h3>
+                    <p>Handpicked from the finest sources</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-award"></i></div>
+                    <h3>Trusted Brand</h3>
+                    <p>Serving Agra since 1950</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-truck-fast"></i></div>
+                    <h3>Fast Delivery</h3>
+                    <p>Same-day delivery in Agra</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                    <h3>100% Natural</h3>
+                    <p>No artificial preservatives</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section - 3 Pages, 8 Products Max Per Page -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2>Our Premium Collection</h2>
+            <p class="section-subtitle">Finest quality dry fruits & spices for your health and taste</p>
+            
+            <div class="product-slider-container">
+                <div class="product-grid" id="productGrid">
+                    <!-- PAGE 1: Products 1-8 -->
+                    <div class="product-card">
+                        <span class="product-tag">Bestseller</span>
+                        <div class="product-image">
+                            <img src="image/image almond.png" alt="Premium Almonds">
+                        </div>
+                        <div class="product-info">
+                            <h3>Premium Almonds</h3>
+                            <p>California almonds - rich in protein</p>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <span class="product-tag">Premium</span>
+                        <div class="product-image">
+                            <img src="image/image kaju.png" alt="Roasted Cashews">
+                        </div>
+                        <div class="product-info">
+                            <h3>Roasted Cashews</h3>
+                            <p>Crunchy and delicious cashew nuts</p>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <span class="product-tag">New</span>
+                        <div class="product-image">
+                            <img src="image/image pista.png" alt="Premium Pistachios">
+                        </div>
+                        <div class="product-info">
+                            <h3>Premium Pistachios</h3>
+                            <p>Iranian pistachios - naturally sweet</p>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="image/image kismis.png" alt="Raisins">
+                        </div>
+                        <div class="product-info">
+                            <h3>Raisins</h3>
+                            <p>Sweet and nutritious dried grapes</p>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <span class="product-tag">Organic</span>
+                        <div class="product-image">
+                            <img src="image/image makhana.png" alt="Makhana">
+                        </div>
+                        <div class="product-info">
+                            <h3>Makhana</h3>
+                            <p>Premium Lotus seeds - fiber rich</p>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="image/walnuts.png" alt="Walnuts">
+                        </div>
+                        <div class="product-info">
+                            <h3>Walnuts</h3>
+                            <p>Kashmir walnuts - brain food</p>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="image/dried dates.png" alt="Dried Dates">
+                        </div>
+                        <div class="product-info">
+                            <h3>Dried Dates</h3>
+                            <p>Premium dates - natural sweetness</p>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="image/mix seeds.png" alt="Mixed Seeds">
+                        </div>
+                        <div class="product-info">
+                            <h3>Mixed Seeds</h3>
+                            <p>Combo pack - healthy snacking</p>
+                        </div>
+                    </div>
+
+                    <!-- PAGE 2: Products 9-16 -->
+                    <div class="product-card">
+                        <span class="product-tag">Hot</span>
+                        <div class="product-image">
+                            <img src="image/mirch.jpg" alt="Desi Mirch">
+                        </div>
+                        <div class="product-info">
+                            <h3>Desi Mirch</h3>
+                            <p>Authentic Indian spices</p>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="image/garam masala.png" alt="Dried Apricots">
+                        </div>
+                        <div class="product-info">
+                            <h3>Garam masala</h3>
+                            <p>Warm spice blend</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <span class="product-tag">New</span>
+                        <div class="product-image">
+                            <img src="image/white pepper.png" alt="White Pepper">
+                        </div>
+                        <div class="product-info">
+                            <h3>White Pepper</h3>
+                            <p>Premium white pepper powder</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="image/amchur.png" alt="Amchur Powder">
+                        </div>
+                        <div class="product-info">
+                            <h3>Amchur Powder</h3>
+                            <p>Tangy dried mango powder</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="image/black pepper.png" alt="Black Pepper">
+                        </div>
+                        <div class="product-info">
+                            <h3>Black Pepper</h3>
+                            <p>Fresh ground black pepper</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <span class="product-tag">Popular</span>
+                        <div class="product-image">
+                            <img src="image/kitchen king.png" alt="Kitchen King">
+                        </div>
+                        <div class="product-info">
+                            <h3>Kitchen King</h3>
+                            <p>All-purpose masala blend</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="image/dhania powder.png" alt="Dhania Powder">
+                        </div>
+                        <div class="product-info">
+                            <h3>Dhania Powder</h3>
+                            <p>Fresh coriander powder</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="image/meat masala.png" alt="Meat Masala">
+                        </div>
+                        <div class="product-info">
+                            <h3>Meat Masala</h3>
+                            <p>Spicy meat curry blend</p>
+                        </div>
+                    </div>
+
+                    <!-- PAGE 3: Products 17-24 -->
+                    <div class="product-card">
+                        <span class="product-tag">Trending</span>
+                        <div class="product-image">
+                            <img src="image/chat masala.png" alt="Chat Masala">
+                        </div>
+                        <div class="product-info">
+                            <h3>Chat Masala</h3>
+                            <p>Tangy street food spice</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="image/saunf powder.png" alt="Saunf Powder">
+                        </div>
+                        <div class="product-info">
+                            <h3>Saunf Powder</h3>
+                            <p>Aromatic fennel powder</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <span class="product-tag">Pure</span>
+                        <div class="product-image">
+                            <img src="image/haldi powder.png" alt="Haldi Powder">
+                        </div>
+                        <div class="product-info">
+                            <h3>Haldi Powder</h3>
+                            <p>Pure turmeric powder</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="image/elaichi.png" alt="Garam Masala">
+                        </div>
+                        <div class="product-info">
+                            <h3>Premium elaichi</h3>
+                            <p>Cardamom</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="image/Gold tea.jpg" alt="Jeera Powder">
+                        </div>
+                        <div class="product-info">
+                            <h3>Govind gold tea</h3>
+                            <p>Premium tea leaves</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="image/dal masala.png" alt="Red Chilli">
+                        </div>
+                        <div class="product-info">
+                            <h3>Dal masala</h3>
+                            <p>Pure dal masala</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="image/apricot.png" alt="Cinnamon">
+                        </div>
+                        <div class="product-info">
+                            <h3>Dried apricots</h3>
+                            <p>Natural sweet</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="image/gift hampers.png" alt="Cardamom">
+                        </div>
+                        <div class="product-info">
+                            <h3>Gift hampers</h3>
+                            <p>Perfect for gifting</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination Controls -->
+            <div class="pagination-controls">
+                <button class="pagination-btn" id="prevBtn" onclick="previousPage()">
+                    <i class="fas fa-chevron-left"></i> Previous
+                </button>
+                <span class="page-indicator" id="pageIndicator">Page 1 of 3</span>
+                <button class="pagination-btn" id="nextBtn" onclick="nextPage()">
+                    Next <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+  <!-- Shops Section -->
+<section id="shops" class="shops-section">
+    <div class="container">
+        <h2>Visit Our Stores in Agra</h2>
+        <div class="shops-grid">
+            <!-- Store 1: Vijay Nagar -->
+            <a href="https://maps.app.goo.gl/xuYgpthCHiUKbtDL8" target="_blank" style="text-decoration: none;">
+                <div class="shop-card">
+                    <div class="shop-image">
+                        <img src="image/store vijay.jpg" alt="Vijay Nagar Store">
+                    </div>
+                    <div class="shop-info">
+                        <h3>Main Branch - Vijay Nagar</h3>
+                        <p class="address">📍 Govind Pansari Vijay Nagar agra near DR. Ak GUPTA</p>
+                        <p>⏰ Open: 10 AM - 9 PM</p>
+                        <p>📞 +91 9368585501</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Store 2: Anthem Street -->
+            <a href="https://maps.app.goo.gl/RTc2fixNhetaRZvh6" target="_blank" style="text-decoration: none;">
+                <div class="shop-card">
+                    <div class="shop-image">
+                        <img src="image/store 2.jpg" alt="Anthem Street Store">
+                    </div>
+                    <div class="shop-info">
+                        <h3>Branch 2 - Anthem Street</h3>
+                        <p class="address">📍 Shop no.2 Anthem street sector 15 awas vikas colony, Agra</p>
+                        <p>⏰ Open: 10 AM - 9 PM</p>
+                        <p>📞 +91 6395947165</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Store 3: KK Nagar -->
+            <a href="https://maps.app.goo.gl/uNxXxHLhnggXzgwr9" target="_blank" style="text-decoration: none;">
+                <div class="shop-card">
+                    <div class="shop-image">
+                        <img src="image/store 3.jpg" alt="KK Nagar Store">
+                    </div>
+                    <div class="shop-info">
+                        <h3>Branch 3 - KK NAGAR</h3>
+                        <p class="address">📍 Shop No.3 Bright complex in front of kamyani hospital bhawna estate, Agra</p>
+                        <p>⏰ Open: 10 AM - 9 PM</p>
+                        <p>📞 +91 9368663195</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Instagram Section -->
+<section id="instagram" class="instagram-section">
+    <div class="container">
+        <h2>Follow Us on Instagram</h2>
+        <p>Check out our latest products and offers!</p>
+        <div class="instagram-feed">
+            <!-- Post 1 -->
+            <div class="instagram-post">
+                <img src="image/insta 1.png" alt="Fresh Almonds Arrived">
+                <div class="instagram-overlay">
+                    <p>Premium product with premium care</p>
+                </div>
+            </div>
+            
+            <!-- Post 2 -->
+            <div class="instagram-post">
+                <img src="image/insta 2.png" alt="Diwali Special Hampers">
+                <div class="instagram-overlay">
+                    <p>Brought to you with love</p>
+                </div>
+            </div>
+            
+            <!-- Post 3 -->
+            <div class="instagram-post">
+                <img src="image/insta 3.png" alt="Premium Dry Fruits">
+                <div class="instagram-overlay">
+                    <p>Benefits of turmeric</p>
+                </div>
+            </div>
+            
+            <!-- Post 4 -->
+            <div class="instagram-post">
+                <img src="image/insta 4.png" alt="Customer Reviews">
+                <div class="instagram-overlay">
+                    <p>Walnut benefits</p>
+                </div>
+            </div>
+            
+            <!-- Post 5 -->
+            <div class="instagram-post">
+                <img src="image/insta 5.png" alt="Dates Health Benefits">
+                <div class="instagram-overlay">
+                    <p>Fun fact</p>
+                </div>
+            </div>
+            
+            <!-- Post 6 -->
+            <div class="instagram-post">
+                <img src="image/insta 6.png" alt="Dried Walnut">
+                <div class="instagram-overlay">
+                    <p>Purity is assured</p>
+                </div>
+            </div>
+        </div>
+        <a href="https://www.instagram.com/govind.pansari/" target="_blank" class="insta-follow-btn">
+            <i class="fab fa-instagram"></i> Follow @govind.pansari
+        </a>
+    </div>
+</section>
+    <!-- Celebrity Endorsement Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>Featured</h2>
+            <p style="text-align: center; color: #666; font-size: 1.1rem; margin-bottom: 2rem;">Trusted by celebrities and influencers</p>
+            
+            <div class="celebrity-grid">
+                <div class="celebrity-item">
+                    <img src="image/celebrity 1.jpg" alt="Celebrity Endorsement 1">
+                    <div class="celebrity-name">
+                        <p>Loved by everyone</p>
+                    </div>
+                </div>
+
+                <div class="celebrity-item">
+                    <img src="image/celebrity 2.jpg" alt="Celebrity Endorsement 2">
+                    <div class="celebrity-name">
+                        <p>Best store in agra award</p>
+                    </div>
+                </div>
+
+                <div class="celebrity-item">
+                    <img src="image/celebrity 3.jpg" alt="Celebrity Endorsement 3">
+                    <div class="celebrity-name">
+                        <p>Business excellence award</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Download Section -->
+    <section id="download" class="app-download">
+        <div class="container">
+            <h2>Download Our Mobile App</h2>
+            <p>Order premium dry fruits from the comfort of your home</p>
+            <div class="store-buttons">
+                <a href="https://play.google.com/store" target="_blank" class="store-btn">
+                    <i class="fab fa-google-play"></i>
+                    <div class="btn-text">
+                        <small>GET IT ON</small>
+                        <span>Google Play</span>
+                    </div>
+                </a>
+                <a href="https://www.apple.com/app-store/" target="_blank" class="store-btn">
+                    <i class="fab fa-apple"></i>
+                    <div class="btn-text">
+                        <small>Download on the</small>
+                        <span>App Store</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Govind Pansari</h2>
+            <div class="about-content">
+                <p>
+                    Since 1950, Govind Pansari has been Agra's most trusted name in premium dry fruits and authentic Indian spices. 
+                    What started as a small shop in belanganj agra has grown into three thriving locations across the city, 
+                    serving thousands of satisfied customers.
+                </p>
+                <br>
+                <p>
+                    We pride ourselves on sourcing only the finest quality products directly from farms and trusted suppliers. 
+                    Every almond, cashew, and spice that reaches you has been carefully selected, tested, and packaged 
+                    to preserve its natural goodness. When you choose Govind Pansari, you choose purity, quality, and 75 years of trust.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section id="social" class="social-media">
+        <div class="container">
+            <h2>Connect With Us</h2>
+            <p>Follow us on social media for daily updates, offers, and more!</p>
+            <p>Gmail - m9997281939@gmail.com</p>
+            <p>Phone no. - 9997281939 , 9368585501</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/raj.medatwal/" target="_blank" class="social-icon facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/govind.pansari/" target="_blank" class="social-icon instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://wa.me/919997281939" target="_blank" class="social-icon whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 <span class="footer-highlight">Govind Pansari</span> - Dry Fruits & Spices</p>
+            <p>Serving Agra Since 1950 | Quality • Purity • Trust</p>
+            <p style="margin-top: 1rem;">Made with ❤️ in Agra</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.remove('active');
+        }
+
+        // Product Pagination - 3 Pages, 8 Products Per Page
+        let currentPage = 1;
+        const productsPerPage = 8;
+        const productCards = document.querySelectorAll('.product-card');
+        const totalPages = 3;
+
+        function showPage(page) {
+            const start = (page - 1) * productsPerPage;
+            const end = start + productsPerPage;
+
+            productCards.forEach((card, index) => {
+                if (index >= start && index < end) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            document.getElementById('pageIndicator').textContent = `Page ${page} of ${totalPages}`;
+            document.getElementById('prevBtn').disabled = page === 1;
+            document.getElementById('nextBtn').disabled = page === totalPages;
+
+            // Scroll to products section
+            document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function nextPage() {
+            if (currentPage < totalPages) {
+                currentPage++;
+                showPage(currentPage);
+            }
+        }
+
+        function previousPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                showPage(currentPage);
+            }
+        }
+
+        // Initialize first page
+        showPage(1);
+    </script>
+
+</body>
+<!-- === AESTHETIC POPUP CODE START === -->
+<style>
+  #app-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    backdrop-filter: blur(5px); /* Adds a nice blur effect to the background */
+  }
+
+  #app-popup {
+    background: white;
+    padding: 35px 30px;
+    border-radius: 15px;
+    max-width: 360px;
+    width: 90%;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    animation: popup-fade-in 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    transform: scale(0.95);
+  }
+
+  #app-popup h2 {
+    margin: 0 0 15px;
+    color: #C41E3A; /* Your brand's primary red */
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+
+  #app-popup p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    color: #555;
+  }
+
+  #app-popup .download-btn {
+    display: block;
+    width: 100%;
+    background: linear-gradient(135deg, #C41E3A, #8B0000);
+    color: white;
+    padding: 14px 20px;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-bottom: 15px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  #app-popup .download-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(196, 30, 58, 0.3);
+  }
+
+  #app-popup .close-btn {
+    background: none;
+    border: none;
+    color: #888;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+  }
+
+  #app-popup .close-btn:hover {
+    color: #333;
+  }
+
+  @keyframes popup-fade-in {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+  }
+</style>
+
+<div id="app-popup-overlay">
+  <div id="app-popup">
+    <h2>Order From Our App</h2>
+    <p>For the best experience and exclusive offers, please download our app to place your order online.</p>
+    <a href="https://play.google.com/store/apps/details?id=your.app.id" target="_blank" class="download-btn">Download from Play Store</a>
+    <button class="close-btn" onclick="closeAppPopup()">Continue on Website</button>
+  </div>
+</div>
+
+<script>
+    // Ensure you have only one set of these functions and event listeners
+    function closeAppPopup() {
+      document.getElementById('app-popup-overlay').style.display = 'none';
+    }
+
+    function showAppPopup() {
+      document.getElementById('app-popup-overlay').style.display = 'flex';
+    }
+
+    // Attach event listeners to all product cards
+    document.addEventListener('DOMContentLoaded', function() {
+        // This makes sure the previous event listener for mobile menu still works
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        if(menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+        
+        // Add click listener for product popups
+        const productCards = document.querySelectorAll('.product-card');
+        productCards.forEach(card => {
+            card.addEventListener('click', function(event) {
+                event.preventDefault();
+                showAppPopup();
+            });
+        });
+    });
+</script>
+<!-- === AESTHETIC POPUP CODE END === -->
+
+
+</html>
